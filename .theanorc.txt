@@ -1,0 +1,24 @@
+[global] 
+openmp = False 
+device = gpu 
+floatX = float32 
+allow_input_downcast = True
+optimizer_including  = cudnn
+
+[lib]
+cnmem = 0.6
+
+[dnn.conv]
+algo_bwd_filter = deterministic
+algo_bwd_data   = deterministic
+
+[blas] 
+ldflags = ldflags=-LC:\CUDA-GPU\OpenBLAS-v0.2.8-x86_64-Win\bin -lopenblas
+
+[nvcc] 
+flags = -LC:\WinPython-64bit-2.7.10.3\python-2.7.10.amd64\libs
+compiler_bindir = C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin
+fastmath = True
+
+[cmodule]
+compilation_warning = False
